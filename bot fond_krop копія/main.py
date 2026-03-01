@@ -12,6 +12,12 @@ if not TOKEN:
 
 bot = telebot.TeleBot(TOKEN, parse_mode="HTML")
 
+bot.remove_webhook()
+time.sleep(1)
+
+print("✅ Bot is running...")
+bot.infinity_polling(skip_pending=True, timeout=60, long_polling_timeout=60)
+
 # Адмін (куди приходять заявки/реєстрації)
 ADMIN_ID = int(os.getenv("ADMIN_ID", "773277013"))
 
