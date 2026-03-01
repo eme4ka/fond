@@ -7,10 +7,10 @@ from telebot import types
 # ⚠️ Рекомендовано: зберігай токен в змінній середовища BOT_TOKEN
 # TOKEN = os.getenv("BOT_TOKEN")
 TOKEN = os.getenv("BOT_TOKEN")
-bot = telebot.TeleBot(TOKEN)
-
 if not TOKEN:
-    raise RuntimeError("❌ Не знайдено BOT_TOKEN. Запуск: BOT_TOKEN=xxx python main.py")
+    raise RuntimeError("❌ Не знайдено BOT_TOKEN. Додай у Railway Variables.")
+
+bot = telebot.TeleBot(TOKEN, parse_mode="HTML")
 
 # Адмін (куди приходять заявки/реєстрації)
 ADMIN_ID = int(os.getenv("ADMIN_ID", "773277013"))
