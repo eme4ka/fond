@@ -6,9 +6,14 @@ from telebot import types
 # ===================== CONFIG =====================
 # ⚠️ Рекомендовано: зберігай токен в змінній середовища BOT_TOKEN
 # TOKEN = os.getenv("BOT_TOKEN")
-TOKEN = "8781863086:AAHJKcwpX_fgDCuaN1vnlIGv95TIiyzyzjk"
-if not TOKEN:
-    raise RuntimeError("❌ Не знайдено BOT_TOKEN. Запуск: BOT_TOKEN=xxx python main.py")
+TOKEN = os.getenv("BOT_TOKEN")
+bot = telebot.TeleBot(TOKEN)
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def p(name: str) -> str:
+    """Absolute path helper (file next to bot.py)."""
+    return os.path.join(BASE_DIR, name)
 
 # Адмін (куди приходять заявки/реєстрації)
 ADMIN_ID = int(os.getenv("ADMIN_ID", "773277013"))
